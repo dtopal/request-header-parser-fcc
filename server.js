@@ -26,6 +26,9 @@ app.get("/api/hello", function (req, res) {
 
 // APO endpoint for [base url]/api/whoami
 app.get("/api/whoami", function (req, res) {
+  
+  var req.headers['x-forwarded-for'].toString().match(/([\d.:]+),/)[0];
+  
   res.json({ "ip address" : req.ip,
            "language" : req.headers["accept-language"],
            "software" : req.headers["user-agent"] });
