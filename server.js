@@ -24,7 +24,10 @@ app.get("/api/hello", function (req, res) {
   res.json({greeting: 'hello API'});
 });
 
-
+// APO endpoint for [base url]/api/whoami
+app.get("/api/whoami", function (req, res) {
+  res.json({ "ip address" : req.ip });
+})
 
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
